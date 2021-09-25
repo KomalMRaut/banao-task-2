@@ -3,7 +3,7 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { gsap, Power3 } from "gsap";
 export default function SectionCard(props) {
-  const matches = useMediaQuery("(max-width:420px)");
+  const matches = useMediaQuery("(max-width:768px)");
   const { SvgTxt1, SvgTxt2, SvgTxt3, bgcolor, secHead, secPara, secEnd } =
     props;
   let svgTxt = useRef(null);
@@ -30,7 +30,7 @@ export default function SectionCard(props) {
         backgroundColor: bgcolor,
       }}
     >
-      <EffectCheck value={dynamicCheckValue} />
+      {!matches && <EffectCheck value={dynamicCheckValue} />}
       <div className="Svg-sec-txt" ref={(el) => (svgTxt = el)}>
         <h4 style={{ textAlign: "start" }}>{SvgTxt1}</h4>
         <h1 style={{ fontWeight: 700 }}>{SvgTxt2}</h1>
